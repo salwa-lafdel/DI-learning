@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br><br>
+        <input type="submit" value="Submit" id="submit">
+      </form> 
+      <ul class="usersAnswer"></ul>
+    <script>
+
+       /* //--------------by id-------------
+        //first input
+        let input1=document.getElementById('fname');
+        console.log(input1)
+         //second input
+         let input2=document.getElementById('lname');
+        console.log(input2)
+         //--------------by name-------------
+         let input3=document.getElementsByName('fname');
+        console.log(input3[0])
+        let input4=document.getElementsByName('lname');
+        console.log(input4[0])*/
+
+        let form=document.querySelector('form')
+        form.addEventListener('submit',inputsForm)
+           
+        function inputsForm(e){
+            e.preventDefault()
+            let input3=document.getElementsByName('fname').value; 
+            let input4=document.getElementsByName('lname').value;
+            console.log(input3,input4)
+            if (input3==="" || input4===""){
+                alert("s'il vous plait remplire toutes les inputs")
+                return
+            }
+            else{ const ul=document.querySelector(".usersAnswer")
+        ul.innerHTML=""
+    const firstli=document.createElement("li")
+    const secondli=document.createElement("li");
+   firstli.innerHTML=input3
+   secondli.innerHTML=input4
+   ul.append(firstli,secondli)
+
+}
+;}
+
+        
+    </script>
+</body>
+</html>

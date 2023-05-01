@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="element">Learning JavaScrit</h1>
+    <script>
+        const myElement = document.getElementById("element");
+        //changer la couleur
+        myElement.addEventListener("click", function() {
+        this.style.backgroundColor = "yellow";
+        });
+
+        //hover
+        myElement.addEventListener("mouseover", function() {
+        // Changer la position x de l'élément
+        const X = parseInt(this.style.left) || 0;
+        this.style.left = X + 10 + "px";
+         });
+
+        //mouseout
+        myElement.addEventListener("mouseout", function() {
+       // Changer la position y de l'élément
+       const Y = parseInt(this.style.top) || 0;
+        this.style.top = Y + 10 + "px";
+  });
+  
+      //  le double-clic 
+      myElement.addEventListener("dblclick", function() {
+      // Changer la taille de police de l'élément
+      const currentFontSize = parseInt(this.style.fontSize) || 16;
+    this.style.fontSize = currentFontSize + 2 + "px";
+});
+  
+
+    </script>
+</body>
+</html>

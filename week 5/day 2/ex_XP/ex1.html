@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <h1> Some Facts </h1>
+        <h2> The Chocolate </h2>
+        <h3> History of the chocolate </h3>
+        <p> Chocolate is made from tropical Theobroma cacao tree seeds. 
+        Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+        <p> After the European discovery of the Americas, chocolate became 
+        very popular in the wider world, and its demand exploded. </p>
+        <p> Chocolate has since become a popular food product that millions enjoy every day, 
+        thanks to its unique, rich, and sweet taste.</p> 
+        <p> But what effect does eating chocolate have on our health?</p> 
+        <button>Changer</button>
+    </article>
+    <script>
+        let h1=document.querySelector('h1');
+        console.log(h1)
+        //bonus
+        h1.addEventListener('mouseover',function(){
+            h1.style.fontSize='50px'
+        })
+        //supprimer la derniere paragraphe
+        let derniereP=document.querySelectorAll('p');
+        derniereP[3].remove()
+        //ajouter un arriere plan
+        let h2=document.querySelector('h2');
+        h2.addEventListener('click',function(){
+            h2.style.backgroundColor='red'
+        })
+        //supprimer lorsqu'on click
+        let h3=document.querySelector('h3');
+        h3.addEventListener('click',function(){
+            h3.style.display='none'
+        })
+        //la button change la taille des parag
+        let button=document.querySelector('button');
+        button.addEventListener('click',function(){
+            for(i=0; i<derniereP.length;i++)
+            {derniereP[i].style.fontSize='25px'}
+        })
+    </script>
+</body>
+</html>
