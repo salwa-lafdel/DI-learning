@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        #target {
+          width: 200px;
+          height: 200px;
+          position: relative;
+          background: yellow;
+        }
+        #box {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="target"></div>
+        <br>
+        <div id="box"></div>
+        <script>
+var box = document.getElementById("box");
+var target = document.getElementById("target");
+
+var isDragging = false;
+
+box.addEventListener("mousedown", function(e) {
+  isDragging = true;
+});
+
+document.addEventListener("mousemove", function(e) {
+  if (isDragging) {
+    box.style.left = e.pageX - box.offsetWidth / 2 + "px";
+    box.style.top = e.pageY - box.offsetHeight / 2 + "px";
+  }
+});
+
+document.addEventListener("mouseup", function(e) {
+  isDragging = false;
+  if (isOverlapping(box, target)) {
+    target.appendChild(box);
+  }
+});
+
+function isOverlapping(element1, element2) {
+  var rect1 = element1.getBoundingClientRect();
+  var rect2 = element2.getBoundingClientRect();
+  return !(rect1.right < rect2.left || 
+           rect1.left > rect2.right || 
+           rect1.bottom < rect2.top || 
+           rect1.top > rect2.bottom);
+}
+
+        </script>
+    </body>
+    </html>

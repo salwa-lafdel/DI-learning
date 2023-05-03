@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        p {
+          background: yellow;
+          color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <button id="clear">Clear Interval</button>
+        <script>
+            //part 1
+            setTimeout(function() {
+            alert("Hello World");
+            }, 2000);
+            
+            //Partie 2
+            setTimeout(function() {
+            let container = document.getElementById("container");
+            let newParagraph = document.createElement("p");
+            newParagraph.innerHTML = "Hello World";
+            container.appendChild(newParagraph);
+            }, 2000);
+
+            //part 3
+            let intervalId = setInterval(function() {
+            var container2 = document.getElementById("container");
+            var newParagraph2 = document.createElement("p");
+            newParagraph2.innerHTML = "Hello World";
+            container2.appendChild(newParagraph2);
+            // si le nombre des para depace 5 il efface tout
+            if (container2.getElementsByTagName("p").length === 5) {
+            clearInterval(intervalId);
+            }
+            }, 2000);
+
+            // on cilck sur la bouton pour supprimer (clearInterval)
+            var clearButton = document.getElementById("clear");
+            clearButton.addEventListener("click", function() {
+            clearInterval(intervalId);
+            });
+
+        </script>
+    </body>
+    </html>

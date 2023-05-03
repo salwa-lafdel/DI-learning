@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <p><button onclick="myMove()">Click Me</button></p>
+        <div id="container">
+          <div id="animate"></div>
+        </div>
+        <script>
+            var animate = document.getElementById("animate");
+            var container = document.getElementById("container");
+
+function myMove() {
+  var position = 0;
+  var intervalId = setInterval(deplace, 1);
+  function deplace() {
+    // si le carre rouge depace container il stoper la fct
+    if (position === container.offsetWidth - animate.offsetWidth) {
+      clearInterval(intervalId);
+    } else {
+      position++;
+      animate.style.left = position + "px";
+    }
+  }
+}
+
+        </script>
+    </body>
+    </html>
