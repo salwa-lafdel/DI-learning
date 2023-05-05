@@ -16,26 +16,31 @@ infoAboutMe()
 infoAboutPerson("David", 45, "blue")
 infoAboutPerson("Josh", 12, "yellow")*/
 //----------------exercice 2-------------------
-/*function calculateTip(){
+function calculateTip(){
     let facture = prompt(" how much is the bill?")
     let tip
     if(facture<50)  tip=0.2
     if(facture>50 && facture<200)  tip=0.15
     if(facture>200)  tip=0.1
-    console.log( "bill",facture)  
-    console.log("tip",tip)
+    let tipAmount=facture*tip;
+    let total=facture+tipAmount;
+    console.log(`Le montant du pourboire est de ${tipAmount.toFixed(2)}$ et le montant total à payer est de ${total}$`);
 }
-calculateTip()*/
+calculateTip()
 //----------------exercice 3-------------------
-/*function isDivisible(divisor){
+function isDivisible(divisor){
     let som=0
     for(let i=0;i<500; i++){
-    if(i%divisor===0) som= som+i
+    if(i%divisor===0) {
+        console.log (i)  ;
+         som= som+i
+    }
+    
     }
     console.log("la somme des nombres diviser par se nombre est :",som)
 
 }
-isDivisible(23)*/
+isDivisible(23)
 //----------------exercice 4-------------------
 /*onst stock = { 
     "banana": 6, 
@@ -71,7 +76,7 @@ function myBill(){
 //----------------exercice 5------------------
 function changeEnough(itemPrice, amountOfChange){
     const som=calculsom( amountOfChange)
-    if (som> itemPrice){
+    if (som> itemPrice && som===itemPrice){
         console.log(" you can afford it")
         return true
     }
