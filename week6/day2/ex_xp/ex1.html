@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// #1--------------------------------------------------
+function funcOne() {
+    let a = 5;
+    if(a > 1) {
+        a = 3;
+    }
+    alert(`inside the funcOne function ${a}`);
+}
+funcOne()
+// Prédiction : Puisque la condition est vraie, la valeur de 'a' est changée en 3 
+// On ne peut pas changer la valeur d'une constante déclaree par condt.
+//#2--------------------------------------------------------
+let b= 0;
+function funcTwo() {
+    b = 5;
+}
+
+function funcThree() {
+    alert(`inside the funcThree function ${b}`);
+}
+funcThree()
+funcTwo()
+funcThree()
+// Prédiction : dans funcTwo() b prend 5 car il est initialement par 0
+// On ne peut pas changer la valeur d'une constante déclaree par condt.
+
+
+//#3---------------------------------------------------------
+function funcFour() {
+    window.c = "hello";
+}
+
+
+function funcFive() {
+    alert(`inside the funcFive function ${d}`);
+}
+
+funcFour()
+funcFive()
+// Prédiction :la sortie de la fonction sera "à l'intérieur de la fonction funcFive bonjour".
+
+//#4------------------------------------------------------
+let e = 1;
+function funcSix() {
+    let e = "test";
+    alert(`inside the funcSix function ${e}`);
+}
+
+funcSix()
+// Il n'y aura pas de changement dans la sortie de la fonction car 'a' n'est pas réaffecté
+//#5---------------------------------------------------
+let f = 2;
+if (true) {
+    let f = 5;
+    alert(`in the if block ${f}`);
+}
+alert(`outside of the if block ${f}`);
+// Prédiction : La sortie de la fonction sera "dans le bloc if 5" et "en dehors du bloc if 2".,car f déclaré à l'intérieur du bloc if
+// Il n'y aura pas de changement dans la sortie de la fonction car 'a' n'est pas réaffecté.
+    </script>
+</body>
+</html>
