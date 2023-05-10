@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let client = "John";
+
+        const groceries = {
+            fruits : ["pear", "apple", "banana"],
+            vegetables: ["tomatoes", "cucumber", "salad"],
+            totalPrice : "20$",
+            other : {
+                payed : true,
+                meansOfPayment : ["cash", "creditCard"]
+            }
+        }
+        
+        const displayGroceries = () => {
+            groceries.fruits.forEach(fruit => console.log(fruit));
+        }
+        
+        const cloneGroceries = () => {
+            let user = client;
+            client = "Betty";
+            let shopping = groceries;
+            shopping.totalPrice = "35$";
+            shopping.other.payed = false;
+        }
+        
+        cloneGroceries();
+        console.log(client); // "Betty"
+        console.log(groceries.totalPrice); // "35$"
+        console.log(groceries.other.payed); // false
+        </script>
+</body>
+</html>
