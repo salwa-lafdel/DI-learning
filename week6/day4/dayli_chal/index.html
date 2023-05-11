@@ -7,35 +7,41 @@
     <title>Document</title>
 </head>
 <body>
+    
     <script>
-    let client = "John";
 
-        const groceries = {
-            fruits : ["pear", "apple", "banana"],
-            vegetables: ["tomatoes", "cucumber", "salad"],
-            totalPrice : "20$",
-            other : {
-                payed : true,
-                meansOfPayment : ["cash", "creditCard"]
-            }
-        }
-        
-        const displayGroceries = () => {
-            groceries.fruits.forEach(fruit => console.log(fruit));
-        }
-        
-        const cloneGroceries = () => {
-            let user = client;
-            client = "Betty";
-            let shopping = groceries;
-            shopping.totalPrice = "35$";
-            shopping.other.payed = false;
-        }
-        
-        cloneGroceries();
-        console.log(client); // "Betty"
-        console.log(groceries.totalPrice); // "35$"
-        console.log(groceries.other.payed); // false
+let client = "John";
+
+const groceries = {
+  fruits: ["pear", "apple", "banana"],
+  vegetables: ["tomatoes", "cucumber", "salad"],
+  totalPrice: "20$",
+  other: {
+    payed: true,
+    meansOfPayment: ["cash", "creditCard"]
+  }
+};
+
+const displayGroceries = () => {
+  groceries.fruits.forEach(fruit => console.log(fruit));
+};
+
+const cloneGroceries = () => {
+  let user = client; // user est maintenant une copie de la variable client
+  client = "Betty"; // la variable client est modifiée
+  let shopping = groceries; // shopping est maintenant égal à l'objet groceries
+
+  shopping.totalPrice = "35$"; // la valeur de la totalPrice clé est modifiée dans l'objet shopping
+  shopping.other.payed = false; // la valeur de la payed clé est modifiée dans l'objet shopping
+
+  console.log(user); // affiche "John"
+  console.log(client); // affiche "Betty"
+  console.log(groceries); // affiche l'objet groceries modifié
+  console.log(shopping); // affiche l'objet shopping modifié
+};
+
+cloneGroceries(); // appel de la fonction cloneGroceries
+
         </script>
 </body>
 </html>
