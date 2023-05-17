@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function singBottlesOfBeer(numBottles) {
+  for (let i = numBottles; i > 0; i--) {
+    let bottleTxt = i === 1 ? "bottle" : "bottles";
+    let nextBottleTxt = i - 1 === 1 ? "bottle" : "bottles"; //revenue en arriere
+    console.log(`${i} ${bottleTxt} of beer on the wall`);
+    console.log(`${i} ${bottleTxt} of beer`);
+    console.log(`Take ${i === 1 ? "it" : i} down, pass ${i === 1 ? "it" : "them"} around`);
+    console.log(`${i - 1 === 0 ? "No more" : i - 1} ${nextBottleTxt} of beer on the wall\n`);
+  }
+}
+
+let numBottles = parseInt(prompt("Enter the number of bottles to start with:"));
+singBottlesOfBeer(numBottles); //l'appel du fonction
+
+    </script>
+</body>
+</html>
