@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function bottlesOfBeer(num) {
+  for (let i = num; i >= 0; i--) {
+    let bottleText = i === 1 ? 'bottle' : 'bottles';
+    let nextBottleText = i - 1 === 1  ? 'bottle' : 'bottles';
+    let nextBottleCount = i === 0 ? 'no more' : i - 1;
+
+    console.log(`${i} ${bottleText} of beer on the wall`);
+    console.log(`${i} ${bottleText} of beer`);
+    console.log(`Take ${i === 0 ? 'it' : i} down, pass ${i === 0 ? 'it' : 'them'} around`);
+    console.log(`${nextBottleCount === 0 ? 'No more' : nextBottleCount} ${nextBottleText} of beer on the wall\n`);
+  }
+}
+
+let startingBottles = parseInt(prompt('Enter the number of bottles to start the song:'));
+bottlesOfBeer(startingBottles);
+
+    </script>
+</body>
+</html>

@@ -3,9 +3,8 @@ const tasks = [];
 function addTask() {
 	const taskInput = document.getElementById("task");
 	if (taskInput.value !== "") {
-		// Ajouter la tâche au tableau
 		tasks.push(taskInput.value);
-		// Réinitialiser la valeur de l'entrée
+	
 		taskInput.value = "";
 		// Mettre à jour la liste de tâches dans le DOM
 		updateTaskList();
