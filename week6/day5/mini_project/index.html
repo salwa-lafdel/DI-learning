@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Générer un devis</h1>
+    <section></section> <br>
+    <button id="Générerdevis">Générer un devis</button><br>
+    <h3>écrire un citation a ajouter :</h3>
+    <form action="">
+        <label for="">Citation</label>
+        <input type="text" id="text1"><br>
+        <label for="">Auteur</label>
+        <input type="text" id="text2"><br><br>
+        <button id="bntAjout">Ajouter</button><br>
+        <h1>Citations célèbres</h1>
+       
+        <p>Cliquer pour connait le nombre de caractère à l'intérieur de chaque citation (avec espace). </p>
+        <button id="btnCalcul" > Avec espace</button><span></span><br>
+        <p>Cliquer pour connait le nombre de caractère à l'intérieur de chaque citation (sans espace). </p>
+        <button id="btnCalcul2">Sans espace</button><span></span><br>
+        <p>Cliquer pour connait le nombre de mots à l'intérieur de chaque citation.</p>
+        <button id="btnCalcul3">Nombre de mots</button><span></span><br>
+        <p>Cliquer pour connait le nombre des likes  de chaque citation. </p>
+        <button id="bntLike">Nombre de likes </button><span></span><br>
+
+    </form>
+    <br>
+    <h1>Filtrer les citations par auteur</h1>
+	<form>
+		<label for="author">Nom de l'auteur :</label>
+		<input type="text" id="author" name="author">
+		<input type="submit" value="Filtrer" id="btnfil">
+	</form>
+	<hr>
+	<div id="citation"></div>
+	<div>
+		<button id="prevBtn" >Précédent</button>
+		<button id="nextBtn" >Suivant</button>
+	</div>
+      
+    <script src="script.js"></script>
+</body>
+</html>

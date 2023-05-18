@@ -1,0 +1,15 @@
+section{
+    background-color: aqua;
+    width: 400px;
+    height: 50px;
+    border: 1px solid black;
+    
+}
+#Générerdevis{
+    position: relative;
+    left: 125px;
+}
+#bntAjout{
+    position: relative;
+    left: 100px;
+}
