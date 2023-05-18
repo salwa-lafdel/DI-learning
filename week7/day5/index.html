@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" async defer></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <img  class="logo" src="img/logo.jpeg" alt="image introuvable" width="50px" height="40px">
+    
+    <a class="navbar-brand" href="#" style="color: midnightblue;font-family: Arial, Helvetica, sans-serif;">TheRobot <i class="fa fa-android" aria-hidden="true"></i></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home <i class="fa fa-home" aria-hidden="true"></i></a>
+          
+        </li>
+      </ul>
+    
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search a Robot" aria-label="Search" oninput="filtrename(this.value)">
+        <i class="fa fa-search"  id="fa"></i>
+      </form>
+    </div>
+  </div>
+</nav>
+<h1>Welcome To TheRobot</h1>
+<!-- ------------------------------------------------ -->
+<div id="Container-cards" > </div>
+
+<script>
+      const robots = [
+          {
+            id: 1,
+            name: 'Leanne Graham',
+            username: 'Bret',
+            email: 'Sincere@april.biz',
+            image: 'img/img1.jpeg'
+          },
+          {
+            id: 2,
+            name: 'Ervin Howell',
+            username: 'Antonette',
+            email: 'Shanna@melissa.tv',
+            image: 'img/img2.jpeg'
+          },
+          {
+            id: 3,
+            name: 'Clementine Bauch',
+            username: 'Samantha',
+            email: 'Nathan@yesenia.net',
+            image: 'img/img3.jpeg'
+          },
+          {
+            id: 4,
+            name: 'Patricia Lebsack',
+            username: 'Karianne',
+            email: 'Julianne.OConner@kory.org',
+            image: 'img/img4.jpg'
+          },
+          {
+            id: 5,
+            name: 'Chelsey Dietrich',
+            username: 'Kamren',
+            email: 'Lucio_Hettinger@annie.ca',
+            image: 'img/img5.jpg'
+          },
+          {
+            id: 6,
+            name: 'Mrs. Dennis Schulist',
+            username: 'Leopoldo_Corkery',
+            email: 'Karley_Dach@jasper.info',
+            image: 'img/img6.png'
+          },
+          {
+            id: 7,
+            name: 'Kurtis Weissnat',
+            username: 'Elwyn.Skiles',
+            email: 'Telly.Hoeger@billy.biz',
+            image: 'img/img7.png'
+          },
+          {
+            id: 8,
+            name: 'Nicholas Runolfsdottir V',
+            username: 'Maxime_Nienow',
+            email: 'Sherwood@rosamond.me',
+            image: 'img/img1.jpeg'
+          },
+          {
+            id: 9,
+            name: 'Glenna Reichert',
+            username: 'Delphine',
+            email: 'Chaim_McDermott@dana.io',
+            image:'img/img4.jpg'
+          },
+          {
+            id: 10,
+            name: 'Clementina DuBuque',
+            username: 'Moriah.Stanton',
+            email: 'Rey.Padberg@karina.biz',
+            image:'img/img3.jpeg'
+          },
+          {
+            id: 11,
+            name: 'merlenna Reichert',
+            username: 'melphine',
+            email: 'Chaim_McDermott@dana.io',
+            image:'img/img6.png'
+          },
+          {
+            id: 12,
+            name: 'jolementina DuBuque',
+            username: 'cariah.Stanton',
+            email: 'Rey.Padberg@karina.biz',
+            image:'img/img1.jpeg'
+          }
+          ];
+    let div=document.getElementById('Container-cards');
+    div.style.display = "flex"
+    div.style.alignItems = "center"
+    div.style.justifyContent = "center"
+    div.style.flexWrap = "wrap"
+    /* let h1=document.createElement('h1')
+    h1.textContent='Welcome To YourRobot';
+    div.appendChild(h1); */
+    // la creation d'une card pour chaque robot
+    function appendCards(Robotcard){
+        div.innerHTML = ""
+        Robotcard.forEach(robot => {
+        let robotCard=document.createElement('div');
+        robotCard.className='cardname';
+        robotCard.dataset.id=robot.id; //ajouter l'id dans html
+
+        let robotimg=document.createElement('img');
+        robotimg.src=robot.image;
+    
+        let robotname = document.createElement('h5');
+        robotname.textContent=robot.name
+       
+
+         let icon=document.createElement('i');
+        icon.className="fa fa-user";
+        icon.ariaHidden="true"; 
+
+        let robotUsername = document.createElement('p');
+        robotUsername.textContent = `Username: ${robot.username}`;
+
+        let icon2=document.createElement('i');
+        icon2.className="fa fa-envelope";
+        icon2.id="fa2";
+        icon2.ariaHidden="true";  
+
+        let robotEmail = document.createElement('p');
+        robotEmail.textContent = `Email: ${robot.email}`;
+        
+
+    robotCard.appendChild(robotimg);
+     robotCard.appendChild(robotname);
+     robotCard.appendChild(icon);
+     robotCard.appendChild(robotUsername);
+     robotCard.appendChild(icon2);
+     robotCard.appendChild(robotEmail); 
+    div.appendChild(robotCard);
+})
+    }
+   appendCards(robots)
+   
+//-------Filtre les Robot par le nom---------
+ function filtrename(recherche){
+
+    let newrobot=robots.filter(fil=>{ 
+    //se que trouve dans mes card ----- se que affiche
+       return fil.name.toLowerCase().includes(recherche.toLowerCase())
+    } )
+    
+    console.log(newrobot)
+    appendCards(newrobot)
+ }
+   
+</script>
+</body>
+</html>
