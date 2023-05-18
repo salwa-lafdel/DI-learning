@@ -1,0 +1,65 @@
+.logo{
+    border-radius: 50%;
+}
+#fa{
+  display: flex;
+  align-items: center;
+  
+}
+.navbar-brand{
+  position: relative;
+  margin-left: 12px;
+}
+.d-flex{
+  position: relative;
+  margin-right: 55px;
+}
+h1{
+  background-color:  rgb(120, 189, 166);
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#Container-cards{
+  background-color: rgb(183, 240, 221);
+ 
+}
+
+  .cardname {
+    border: 1px solid blanchedalmond;
+    
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px rgba(14, 9, 9, 0.1);
+  }
+  .cardname :hover{
+    transform: scale(1.2);
+  }
+  
+  .cardname img {
+    width: 40%;
+    height: 40%;
+    background-color:cornflowerblue;
+    border-radius: 100%;
+  }
+  .cardname h5 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(46, 46, 141);
+  }
+  .cardname h5:hover{
+    color: cornflowerblue;
+  }
+  .cardname p {
+    margin-top: 3px;
+    font-size: 14px;
+    color: darkred;
+  }
+  
