@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function makeJuice(size) {
+  const ingredients = [];
+
+  function addIngredients(ingredient1, ingredient2, ingredient3) {
+    ingredients.push(ingredient1, ingredient2, ingredient3);
+  }
+
+  function displayJuice() {
+    const sizeDrink = size.charAt(0).toUpperCase() + size.slice(1);
+    const message = `The client wants a ${sizeDrink} juice, containing ${ingredients.join(", ")}`;
+    console.log(message);
+    // Affichage sur le DOM
+    // document.getElementById("output").innerHTML = message;
+  }
+
+  addIngredients("ingredient1", "ingredient2", "ingredient3");
+  addIngredients("ingredient4", "ingredient5", "ingredient6");
+  displayJuice();
+}
+
+makeJuice("small");
+
+    </script>
+</body>
+</html>
