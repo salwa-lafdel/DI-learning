@@ -76,7 +76,7 @@ function myBill(){
 //----------------exercice 5------------------
 // function changeEnough(itemPrice, amountOfChange){
 //     const som=calculsom( amountOfChange)
-//     if (som> itemPrice && som===itemPrice){
+//     if (som> itemPrice || som===itemPrice){
 //         console.log(" you can afford it")
 //         return true
 //     }
