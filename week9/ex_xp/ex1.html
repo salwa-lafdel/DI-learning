@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function compareToTen(num) {
+  return new Promise((resolve, reject) => {
+    if (num <= 10) {
+      resolve("Promise resolved");
+    } else {
+      reject("Promise rejected");
+    }
+  });
+}
+
+// promesse rejetée
+compareToTen(15)
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
+
+// promesse résolue
+compareToTen(8)
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
+
+    </script>
+</body>
+</html>
