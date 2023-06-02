@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Giphy API Random</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Giphy API Random</h1>
+
+  <form id="searchForm">
+    <input type="text" id="searchInput" placeholder="Entrez une catégorie">
+    <button type="submit">Rechercher</button>
+  </form>
+
+  <div id="gifContainer"></div>
+
+  <button id="deleteAllBtn">SUPPRIMER TOUT</button>
+
+  <script>
+    const API_KEY = "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+
+    //  ajouter un gif avec un bouton SUPPRIMER
+    function addGif(imageUrl) {
+      const gifDiv = document.createElement("div");
+      const gifImage = document.createElement("img");
+      const deleteBtn = document.createElement("button");
+
+      gifImage.src = imageUrl;
+
+      deleteBtn.textContent = "SUPPRIMER";
+      deleteBtn.addEventListener("click", function() {
+        gifDiv.remove();
+      });
+
+      gifDiv.appendChild(gifImage);
+      gifDiv.appendChild(deleteBtn);
+
+      document.getElementById("gifContainer").appendChild(gifDiv);
+    }
+
+    // pour récupérer un gif aléatoire par la recherche de l'utilisateur
+    function getRandomGif(category) {
+      const apiUrl = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${category}`;
+
+      $.getJSON(apiUrl, function(data) {
+        const imageUrl = data.data.images.original.url;
+        addGif(imageUrl);
+      });
+    }
+
+    // Gestionnaire d'événement pour le formulaire de recherche
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const searchInput = document.getElementById("searchInput");
+      const category = searchInput.value;
+
+      getRandomGif(category);
+
+      searchInput.value = "";
+    });
+
+    document.getElementById("deleteAllBtn").addEventListener("click", function() {
+      document.getElementById("gifContainer").innerHTML = "";
+    });
+  </script>
+</body>
+</html>
