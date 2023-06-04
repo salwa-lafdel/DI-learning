@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function makeAllCaps(wordArray) {
+  return new Promise((resolve, reject) => {
+    if (Array.isArray(wordArray)) {
+      const isStrings = wordArray.every((word) => typeof word === 'string');
+      if (isStrings) {
+        const majArray = wordArray.map((word) => word.toUpperCase());
+        resolve(majArray);
+      } else {
+        reject('Le tableau doit contenir uniquement des chaînes de caractères.');
+      }
+    } else {
+      reject('L\'argument doit être un tableau.');
+    }
+  });
+}
+//Si le tableau est valide et tous les éléments sont des chaînes de caractères, la promesse 
+//est résolue avec le tableau de mots en majuscules.
+let words = ['hello', 'world', 'javascript'];
+makeAllCaps(words)
+  .then((result) => {
+    console.log(result); // ['HELLO', 'WORLD', 'JAVASCRIPT']
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+  //-------la 2éme function----------------
+  function sortWords(wordArray) {
+  return new Promise((resolve, reject) => {
+    if (Array.isArray(wordArray)) {
+      if (wordArray.length > 4) {
+        let sortedArray = wordArray.sort();// le tableau de mots triés par ordre alphabétique.
+        resolve(sortedArray);
+      } else {
+        reject('La longueur du tableau doit être supérieure à 4.');
+      }
+    } else {
+      reject('L\'argument doit être un tableau.');
+    }
+  });
+}
+
+let word = ['HELLO', 'WORLD', 'JAVASCRIPT', 'OPENAI', 'GPT'];
+sortWords(word)
+  .then((result) => {
+    console.log(result); // ['GPT', 'HELLO', 'JAVASCRIPT', 'OPENAI', 'WORLD']
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+    </script>
+</body>
+</html>
