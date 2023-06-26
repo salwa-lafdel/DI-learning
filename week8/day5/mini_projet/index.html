@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light " style="background-color: rgb(179, 201, 243);">
+        <div class="container-fluid">
+          <form class="d-flex" action="" method="get">
+            <input class="form-control me-2" type="text" placeholder="Search for a city" id="Inputville">
+            <button class="btn btn-outline-primary" type="submit" >Submit</button>
+          </form>
+        </div>
+      </nav>
+      <div class="container1" id="container1"></div>
+      <h1>Infomations Météo</h1>
+    
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',addCard)
+        function addCard(e){
+            e.preventDefault();
+
+       let Inputville=document.getElementById('Inputville')     
+
+        let xhr = new XMLHttpRequest();
+
+        // 2. Configure it: GET-request for the URL 
+        xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${Inputville.value}&appid=6bc236fa8bd5e7e03f83fd8cea3eac74`);
+
+        // 3. Send the request over the network
+        xhr.send();
+
+        // 4. This will be called after the response is received
+        xhr.onload = function() {
+        if (xhr.status != 200) { // analyze HTTP status of the response
+            alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+        } else { // show the result
+            let data = JSON.parse(xhr.response); // response is the server
+            console.log(data)
+            ajouterCard(data)
+  }
+};
+
+
+xhr.onerror = function() {
+  alert("Request failed");
+        }
+
+};
+function ajouterCard(data){
+  // if (Inputville!== '') {
+  //   alert("Veuillez entrer le nom d'une ville.");
+  // }
+    
+    let container=document.getElementById('container1');
+
+            let div=document.createElement('div');
+            div.className ="cards"
+
+
+            let h2=document.createElement('h2');
+            h2.textContent=data.name;
+
+            let  id=document.createElement('h4');
+            id.textContent= "id:  "+data.weather[0].id;
+
+
+            let img=document.createElement('img');
+            img.src=  ` https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+            img.className="image"
+           
+       
+            let  description=document.createElement('p');
+            description.textContent="description:  "+data.weather[0].description;
+
+
+            let  main=document.createElement('p');
+            main.textContent="main:  "+data.weather[0].main;
+     
+
+            let  humidity=document.createElement('p');
+            humidity.textContent="Humidity:  "+data.main.humidity + ' %';
+        
+            div.appendChild(h2)
+            div.appendChild(id)
+            div.appendChild(img)
+            div.appendChild(description)
+            div.appendChild(main)
+            div.appendChild(humidity)
+            container.appendChild(div)
+
+            Inputville.value=""
+        };
+    </script>
+       
+</body>
+</html>
