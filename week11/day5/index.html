@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter une nouvelle tache</title>
+</head>
+<body>
+    <h1>Ajouter une nouvelle tache</h1>
+
+    <form action="index.html" method="post">
+        <label>Nom :</label>
+        <input type="text" id="nom" name="nom" ><br><br>
+
+        <label>Description :</label>
+        <textarea id="description" name="description" rows="4" cols="50" ></textarea><br><br>
+
+        <label>Date et heure de debut :</label>
+        <input type="datetime-local" id="dateDebut" name="dateDebut" ><br><br>
+
+        <label>Date et heure de fin :</label>
+        <input type="datetime-local" id="dateFin" name="dateFin" ><br><br>
+
+        <input type="submit" value="Ajouter" id="sub">
+        <h1>Les Tasks ajouter</h1>
+        <div id="container"></div>
+    </form>
+
+     <script>
+        display()
+        let btn = document.getElementById("sub");
+        btn.addEventListener("click",addTask);
+        function addTask(e) {
+            e.preventDefault()
+            let name = document.getElementById('nom').value;
+            let description = document.getElementById('description').value;
+            let startDate = document.getElementById('dateDebut').value;
+            let endDate = document.getElementById('dateFin').value;
+            let isCompleted = false;
+
+            var task = {
+                name: name,
+                description: description,
+                startDate: startDate,
+                endDate: endDate,
+                isCompleted: isCompleted
+            };
+
+            if(localStorage.getItem('taskListe')== null){
+                let arr=[]
+                arr.push(task)
+               localStorage.setItem('taskListe',JSON.stringify(arr));
+               display()
+
+            }else{
+                let getItem = JSON.parse(localStorage.getItem('taskListe'));
+                getItem.push(task);
+                localStorage.setItem('taskListe',JSON.stringify(getItem));
+                 // Réinitialisation du formulaire
+                // document.getElementById('taskForm').reset();
+
+                alert('La tâche a été ajoutée avec succès !');
+               display();
+
+            }
+           
+        }
+        function display(){
+            let tasks=JSON.parse(localStorage.getItem('taskListe'))
+
+            if(tasks == null) return
+            let container=document.getElementById('container');
+            container.innerHTML=''
+
+           tasks.forEach(element => {
+            let nom=document.createElement('p');
+            nom.textContent="Nom : "+element.name;
+            let a=document.createElement('a');
+            a.className="btn btn-primary";
+            
+
+
+
+
+
+
+
+
+
+
+            
+            let description=document.createElement('p');
+            description.textContent="description : "+element.description;
+
+            
+            let startDate=document.createElement('p');
+            startDate.textContent="startDate : "+element.startDate;
+            const daysRemaining = calculateDaysRemaining(element.startDate, element.endDate)
+            
+            let endDate=document.createElement('p');
+            endDate.textContent="days left : "+ daysRemaining;
+            
+            let isCompleted=document.createElement('p');
+            isCompleted.textContent="isCompleted : "+element.isCompleted;
+            container.appendChild(nom);
+            container.appendChild(description);
+            container.appendChild(startDate);
+            container.appendChild(endDate);
+            container.appendChild(isCompleted);
+           });
+        }
+        function calculateDaysRemaining(startDate, endDate) {
+            const oneDay = 24 * 60 * 60 * 1000; 
+            const start = new Date();
+            const end = new Date(endDate);
+            const diffDays = Math.round((end - start) / oneDay);
+            return diffDays;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajouter une nouvelle tâche</title>
+</head>
+<body>
+  <h1>Ajouter une nouvelle tâche</h1>
+  <form id="taskForm">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" required></textarea><br>
+
+    <label for="startDate">Date et heure de début :</label>
+    <input type="datetime-local" id="startDate" name="startDate" required><br>
+
+    <label for="endDate">Date et heure de fin :</label>
+    <input type="datetime-local" id="endDate" name="endDate" required><br>
+
+    <input type="submit" value="Ajouter">
+  </form>
+
+  <script>
+    
+    function addTask(event) {
+      event.preventDefault(); 
+
+     
+      var name = document.getElementById('name').value;
+      var description = document.getElementById('description').value;
+      var startDate = document.getElementById('startDate').value;
+      var endDate = document.getElementById('endDate').value;
+      var isCompleted = false;
+
+    
+      var task = {
+        name: name,
+        description: description,
+        startDate: startDate,
+        endDate: endDate,
+        isCompleted: isCompleted
+      };
+
+      // Récupération des tâches existantes dans le localStorage
+      var tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+     
+      tasks.push(task);
+
+      // Sauvegarde du tableau des tâches dans le localStorage
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+
+      document.getElementById('taskForm').reset();
+
+      alert('La tâche a été ajoutée avec succès !');
+    }
+
+   
+    document.getElementById('taskForm').addEventListener('submit', addTask);
+  </script>
+</body>
+</html>
