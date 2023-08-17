@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color:beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.outapp{
+    width: 500px;
+    padding: 10px;
+}
+.inapp{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid white;
+    padding: 2rem;
+    margin-block: 5px;
+    background-color:chocolate;
+}
+
+.btn{
+    color:rgb(231, 161, 8);
+    cursor: pointer;
+}
+
+.title{
+    margin-block: 40px;
+    text-align: center;
+    width: 100%;
+    font-size: 35px;
+}
