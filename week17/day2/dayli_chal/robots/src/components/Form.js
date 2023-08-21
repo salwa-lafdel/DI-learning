@@ -31,7 +31,7 @@ function Form(props){
 
     return(
         <div className='search'>
-            <label > ROBO FRIENDS</label>
+            <label > Your ROBO</label>
             <input onInput={ hansellinput }  type="text" name="" id="search" placeholder="search robots"></input>
         </div>
     )
